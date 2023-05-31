@@ -58,7 +58,7 @@ import ThreeViewPort from './3D/ThreeViewPort.vue'
         }
         .modelView-side{
             flex: 2;
-            background-color: #878787;
+            // background-color: #878787;
         }
     }
 </style>

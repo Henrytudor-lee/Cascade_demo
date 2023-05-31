@@ -1,13 +1,18 @@
 <template>
   <div class="view-port">
     <h1>3D View Port</h1>
-    <div class="three"></div>
+    <div class="three" ref="viewDom"></div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
 import { ThreeView } from './ThreeViewPort'
-const threeView = new ThreeView();
+const viewDom = ref<HTMLElement>()
+onMounted(()=>{
+  const threeView = new ThreeView(viewDom.value);
+})
+
 </script>
 
 <style scoped lang="less">
@@ -18,7 +23,7 @@ const threeView = new ThreeView();
   flex-direction: column;
   .three{
     flex: 1;
-    background-color: lightgoldenrodyellow;
+    // background-color: lightgoldenrodyellow;
   }
 }
 </style>
