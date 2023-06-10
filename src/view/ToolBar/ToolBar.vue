@@ -1,10 +1,9 @@
 <template>
-    <Tree :data="projectTree.projectTree"></Tree>
-  </template>
+  <span>TODO:tool-bar</span>
+</template>
   
   <script setup lang="ts">
-  import { ref, onMounted } from 'vue'
-  import Tree from '../../components/Tree.vue'
+  import { onMounted } from 'vue'
   import useStore from '../../store/index'
   const { projectTree } = useStore()
   onMounted(()=>{

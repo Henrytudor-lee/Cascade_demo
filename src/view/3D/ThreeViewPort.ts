@@ -41,9 +41,9 @@ class ThreeView {
     }
     initCamera(){
         this.camera = new PerspectiveCamera(75, this.context.clientWidth / this.context.clientHeight, 0.1, 1000);
-        this.camera.position.z = 20;
-        this.camera.position.y = 20;
-        this.camera.position.x = 10;
+        this.camera.position.z = 5;
+        this.camera.position.y = 5;
+        this.camera.position.x = 5;
     }
     initGrid(){
 
@@ -51,7 +51,7 @@ class ThreeView {
     initRenderer(){
         this.renderer = new WebGLRenderer();
         this.renderer.setSize( this.context.clientWidth, this.context.clientHeight );
-        // this.renderer.setClearColor(0xff0000, 1)
+        this.renderer.setClearColor(0xF3F8F6, 1)
         // 将渲染器的DOM插入HTML中
         this.context.appendChild(this.renderer.domElement);
     }
