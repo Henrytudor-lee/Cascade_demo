@@ -57,7 +57,8 @@ import ThreeViewPort from './3D/ThreeViewPort.vue'
             }
         }
         .modelView-side{
-            flex: 2;
+            flex: 2.5;
+            overflow: auto;
             // background-color: #878787;
         }
     }

@@ -1,7 +1,6 @@
 <template>
   <div class="view-port">
     <h1>3D View Port</h1>
-    <img src="../../assets/images/cat.jpg" alt="">
     <div class="three" ref="viewDom"></div>
   </div>
 </template>
@@ -11,6 +10,7 @@ import { ref, onMounted } from 'vue'
 import { ThreeView } from './ThreeViewPort'
 const viewDom = ref<HTMLElement>()
 onMounted(()=>{
+  console.log(viewDom)
   const threeView = new ThreeView(viewDom.value);
 })
 
