@@ -3,7 +3,7 @@
     <div class="top-bar border-set">
       <tool-bar></tool-bar>
     </div>
-    <div class="bottom-operation border-set">
+    <div class="bottom-operation">
       <div class="project-side border-set">
         <div class="tree-view">
           <model></model>
@@ -21,10 +21,10 @@
 </template>
 
 <script setup lang="ts">
-import ToolBar from "./ToolBar/ToolBar.vue";
-import Model from "./Model/ModelManager.vue";
-import PropertiesView from "./Properties/PropertiesView.vue";
-import ThreeViewPort from "./3D/ThreeViewPort.vue";
+import ToolBar from "@/view/ToolBar/ToolBar.vue";
+import Model from "@/view/Model/ModelManager.vue";
+import PropertiesView from "@/view/Properties/PropertiesView.vue";
+import ThreeViewPort from "@/view/3D/ThreeViewPort.vue";
 </script>
 
 <style scoped lang="less">

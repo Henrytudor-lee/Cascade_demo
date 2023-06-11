@@ -7,10 +7,10 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { ThreeView } from "./ThreeViewPort";
-const viewDom = ref<HTMLElement>();
+const viewDom = ref<HTMLElement | null>(null);
 onMounted(() => {
-  console.log(viewDom);
-  const threeView = new ThreeView(viewDom.value);
+  const threeView = new ThreeView(<HTMLElement>(viewDom).value);
+  console.log(threeView);
 });
 </script>
 
@@ -22,7 +22,6 @@ onMounted(() => {
   flex-direction: column;
   .three {
     flex: 1;
-    // background-color: lightgoldenrodyellow;
   }
 }
 </style>
