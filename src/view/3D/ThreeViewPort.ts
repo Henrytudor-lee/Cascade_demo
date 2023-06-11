@@ -1,4 +1,4 @@
-import { BoxGeometry, DirectionalLight, GridHelper, Group, HemisphereLight, Mesh, MeshBasicMaterial, MeshPhongMaterial, PCFSoftShadowMap, PerspectiveCamera, PointLight, Scene, SpotLight, WebGLRenderer } from 'three'
+import { BoxGeometry, DirectionalLight, GridHelper, Group, HemisphereLight, Mesh, MeshPhongMaterial, PCFSoftShadowMap, PerspectiveCamera, Scene, WebGLRenderer } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { MyGrid } from './GridHelper';
 /* init 3D environment class */
