@@ -7,9 +7,12 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { ThreeView } from "./ThreeViewPort";
+import { drawLine } from "./drawLine";
 const viewDom = ref<HTMLElement | null>(null);
+
 onMounted(() => {
   const threeView = new ThreeView(<HTMLElement>(viewDom).value);
+  drawLine(viewDom.value as HTMLElement,threeView.camera,threeView.grid,threeView.scene)
   console.log(threeView);
 });
 </script>

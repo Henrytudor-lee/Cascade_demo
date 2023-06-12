@@ -12,7 +12,7 @@ class MyGrid extends GridHelper{
 
     public divisions:number;
 
-    constructor(size:number = 200,divisions:number = 20){
+    constructor(size:number = 100,divisions:number = 20){
         super();
         this.size = size;
         this.divisions = divisions;

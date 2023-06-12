@@ -42,7 +42,7 @@ class ThreeView {
 
         this.scene = new Scene();
         // init grid helper
-        this.grid = new MyGrid();
+        this.grid = new MyGrid().grid;
 
         this.scene.add(this.light);
         this.scene.add(this.grid);
