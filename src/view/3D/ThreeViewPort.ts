@@ -1,4 +1,4 @@
-import { BoxGeometry, DirectionalLight, GridHelper, Group, HemisphereLight, Mesh, MeshPhongMaterial, PCFSoftShadowMap, PerspectiveCamera, Scene, WebGLRenderer } from 'three'
+import { BoxGeometry, DirectionalLight, GridHelper, Group, HemisphereLight, Mesh, MeshPhongMaterial, PCFSoftShadowMap, PerspectiveCamera, Scene, Vector3, WebGLRenderer } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { MyGrid } from './GridHelper';
 /* init 3D environment class */
@@ -69,6 +69,22 @@ class ThreeView {
     }
     private initControls(camera:PerspectiveCamera){
         this.controls = new OrbitControls( camera, this.renderer.domElement );
+        this.controls.target.set(0,0,0);
+        this.controls.keys = {
+            LEFT: 'ArrowLeft', //left arrow
+            UP: 'ArrowUp', // up arrow
+            RIGHT: 'ArrowRight', // right arrow
+            BOTTOM: 'ArrowDown' // down arrow
+        }
+        // const initControlsTarget = () => {
+        //     // this.controls.target.set(0,0,0);
+        // }
+        // this.controls.addEventListener('end',initControlsTarget)
+        // TODO:暂定初始轨道控制器基点，后续以鼠标与辅助网格交点为基点。
+        this.context.onwheel = () => {
+            this.controls.target.set(40,0,0);
+        }
+        // this.context.onmousedown = initControlsTarget
     }
     private initLight(){
         this.light = new Group();
