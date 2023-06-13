@@ -76,15 +76,10 @@ class ThreeView {
             RIGHT: 'ArrowRight', // right arrow
             BOTTOM: 'ArrowDown' // down arrow
         }
-        // const initControlsTarget = () => {
-        //     // this.controls.target.set(0,0,0);
-        // }
-        // this.controls.addEventListener('end',initControlsTarget)
         // TODO:暂定初始轨道控制器基点，后续以鼠标与辅助网格交点为基点。
         this.context.onwheel = () => {
             this.controls.target.set(40,0,0);
         }
-        // this.context.onmousedown = initControlsTarget
     }
     private initLight(){
         this.light = new Group();
