@@ -1,5 +1,6 @@
-import { BoxGeometry, DirectionalLight, GridHelper, Group, HemisphereLight, Mesh, MeshPhongMaterial, PCFSoftShadowMap, PerspectiveCamera, Scene, Vector3, WebGLRenderer } from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import { BoxGeometry, DirectionalLight, GridHelper, Group, HemisphereLight, Mesh, MeshPhongMaterial, PCFSoftShadowMap, PerspectiveCamera, Scene, Vector2, Vector3, WebGLRenderer } from 'three'
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import { OrbitControls } from './controls.js'
 import { MyGrid } from './GridHelper';
 /* init 3D environment class */
 class ThreeView {
@@ -15,8 +16,10 @@ class ThreeView {
     public grid!: GridHelper;
     // threejs模型仓库
     private group!: Group;
-
+    // 初始化模型
     public cube!: Mesh;
+    // 鼠标
+    private mouse:Vector2;
     /**
      * 该类构造函数
      * @param domElement threeView容器dom元素
@@ -25,7 +28,7 @@ class ThreeView {
 
         this.context = domElement;
         this.group   = new Group();
-
+        this.mouse = new Vector2();
         // 预设模型
         this.presetModel();
         this.initLight();
@@ -76,10 +79,22 @@ class ThreeView {
             RIGHT: 'ArrowRight', // right arrow
             BOTTOM: 'ArrowDown' // down arrow
         }
+        // this.controls.enableZoom = false;
+        // this.context.addEventListener('mousemove',(event:MouseEvent) => {
+        //     console.log(1)
+        //     this.mouse.x = (event.clientX / this.context.clientWidth) * 2 - 1;
+        //     this.mouse.y = -(event.clientY / this.context.clientHeight) * 2 + 1;
+        // },false)
+
         // TODO:暂定初始轨道控制器基点，后续以鼠标与辅助网格交点为基点。
-        this.context.onwheel = () => {
-            this.controls.target.set(40,0,0);
-        }
+        // this.context.onwheel = () => {
+        //     // this.controls.target.set(40,0,0);
+            
+        //     // 控制场景缩放
+        //     var scaleFactor = 1 + this.mouse.y * 0.1;
+        //     console.log(scaleFactor,this.mouse.y)
+        //     this.scene.scale.set(scaleFactor, scaleFactor, scaleFactor);
+        // }
     }
     private initLight(){
         this.light = new Group();
@@ -113,6 +128,8 @@ class ThreeView {
 
         this.controls.update();
         this.rotateCube();
+
+
 
         this.renderer.setSize( this.context.clientWidth, this.context.clientHeight );
         this.renderer.render(this.scene, this.camera); // 将场景，相机传入渲染器
