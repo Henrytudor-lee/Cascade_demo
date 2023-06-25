@@ -2,6 +2,7 @@ import { BoxGeometry, DirectionalLight, GridHelper, Group, HemisphereLight, Mesh
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { OrbitControls } from './controls.js'
 import { MyGrid } from './GridHelper';
+import { initOcc } from './OpenCascade.js';
 /* init 3D environment class */
 class ThreeView {
     // threejs容器
@@ -40,6 +41,7 @@ class ThreeView {
         this.initControls(this.camera);
 
         this.animate();
+        initOcc();
     }
     private initScene(){
 
