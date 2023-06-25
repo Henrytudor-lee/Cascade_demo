@@ -40,8 +40,10 @@ class ThreeView {
 
         this.initControls(this.camera);
 
-        this.animate();
-        initOcc();
+        this.animate(); 
+
+        // TODO: 暂时取消初始化，遇到了bug，需要借鉴下项目是怎么写的。
+        // initOcc();
     }
     private initScene(){
 
