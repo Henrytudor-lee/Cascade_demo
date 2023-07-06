@@ -2,7 +2,10 @@ import { BoxGeometry, DirectionalLight, GridHelper, Group, HemisphereLight, Mesh
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { OrbitControls } from './controls.js'
 import { MyGrid } from './GridHelper';
-import { initOcc } from './OpenCascade.js';
+import { OpenCascadeInstance } from 'opencascade.js/dist/opencascade.full.js';
+import { initOccInstance } from './OpenCascade.js';
+import initOpenCascade from 'opencascade.js';
+// import { initOpenCascade } from './OpenCascade.js';
 /* init 3D environment class */
 class ThreeView {
     // threejs容器
@@ -21,6 +24,9 @@ class ThreeView {
     public cube!: Mesh;
     // 鼠标
     private mouse:Vector2;
+
+    // occ对象
+    private oc: OpenCascadeInstance;
     /**
      * 该类构造函数
      * @param domElement threeView容器dom元素
@@ -43,7 +49,7 @@ class ThreeView {
         this.animate(); 
 
         // TODO: 暂时取消初始化，遇到了bug，需要借鉴下项目是怎么写的。
-        // initOcc();
+        this.initOcc();
     }
     private initScene(){
 
@@ -119,6 +125,11 @@ class ThreeView {
 
         this.light.add(light);
         this.light.add(light2);
+    }
+    private initOcc() {
+        initOpenCascade().then((oc : OpenCascadeInstance) => {
+            this.oc = oc;
+        }); 
     }
     /**
      * 0610:这里用箭头函数的原因在于,第一次this.animate()时，animate这个方法还未定义，this指向的undefined，所以会报错。

@@ -20,7 +20,8 @@ export default defineConfig({
     }
   },
   optimizeDeps: {
-    include: ['file-loader'] // 如果你的项目中需要使用 file-loader，请将它添加到 optimizeDeps.include 数组中
+    include: ['file-loader'], // 如果你的项目中需要使用 file-loader，请将它添加到 optimizeDeps.include 数组中
+    // exclude: ['a']
   },
   server: {
     fs: {
